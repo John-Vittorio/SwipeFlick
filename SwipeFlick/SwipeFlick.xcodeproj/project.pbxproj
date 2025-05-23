@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		DDEF9F5C2DE05B2900001C85 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDEF9F3D2DE05B2800001C85 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDEF9F442DE05B2800001C85;
+			remoteInfo = SwipeFlick;
+		};
+		DDEF9F662DE05B2900001C85 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDEF9F3D2DE05B2800001C85 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDEF9F442DE05B2800001C85;
+			remoteInfo = SwipeFlick;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DDEF9F452DE05B2800001C85 /* SwipeFlick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeFlick.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDEF9F5B2DE05B2900001C85 /* SwipeFlickTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipeFlickTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDEF9F652DE05B2900001C85 /* SwipeFlickUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipeFlickUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DDEF9F6D2DE05B2900001C85 /* Exceptions for "SwipeFlick" folder in "SwipeFlick" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = DDEF9F442DE05B2800001C85 /* SwipeFlick */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		DDEF9F472DE05B2800001C85 /* SwipeFlick */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DDEF9F6D2DE05B2900001C85 /* Exceptions for "SwipeFlick" folder in "SwipeFlick" target */,
+			);
+			path = SwipeFlick;
+			sourceTree = "<group>";
+		};
+		DDEF9F5E2DE05B2900001C85 /* SwipeFlickTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SwipeFlickTests;
+			sourceTree = "<group>";
+		};
+		DDEF9F682DE05B2900001C85 /* SwipeFlickUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SwipeFlickUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DDEF9F422DE05B2800001C85 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEF9F582DE05B2900001C85 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEF9F622DE05B2900001C85 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DDEF9F3C2DE05B2800001C85 = {
+			isa = PBXGroup;
+			children = (
+				DDEF9F472DE05B2800001C85 /* SwipeFlick */,
+				DDEF9F5E2DE05B2900001C85 /* SwipeFlickTests */,
+				DDEF9F682DE05B2900001C85 /* SwipeFlickUITests */,
+				DDEF9F462DE05B2800001C85 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DDEF9F462DE05B2800001C85 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDEF9F452DE05B2800001C85 /* SwipeFlick.app */,
+				DDEF9F5B2DE05B2900001C85 /* SwipeFlickTests.xctest */,
+				DDEF9F652DE05B2900001C85 /* SwipeFlickUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DDEF9F442DE05B2800001C85 /* SwipeFlick */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDEF9F6E2DE05B2900001C85 /* Build configuration list for PBXNativeTarget "SwipeFlick" */;
+			buildPhases = (
+				DDEF9F412DE05B2800001C85 /* Sources */,
+				DDEF9F422DE05B2800001C85 /* Frameworks */,
+				DDEF9F432DE05B2800001C85 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DDEF9F472DE05B2800001C85 /* SwipeFlick */,
+			);
+			name = SwipeFlick;
+			packageProductDependencies = (
+			);
+			productName = SwipeFlick;
+			productReference = DDEF9F452DE05B2800001C85 /* SwipeFlick.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DDEF9F5A2DE05B2900001C85 /* SwipeFlickTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDEF9F732DE05B2900001C85 /* Build configuration list for PBXNativeTarget "SwipeFlickTests" */;
+			buildPhases = (
+				DDEF9F572DE05B2900001C85 /* Sources */,
+				DDEF9F582DE05B2900001C85 /* Frameworks */,
+				DDEF9F592DE05B2900001C85 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDEF9F5D2DE05B2900001C85 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DDEF9F5E2DE05B2900001C85 /* SwipeFlickTests */,
+			);
+			name = SwipeFlickTests;
+			packageProductDependencies = (
+			);
+			productName = SwipeFlickTests;
+			productReference = DDEF9F5B2DE05B2900001C85 /* SwipeFlickTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DDEF9F642DE05B2900001C85 /* SwipeFlickUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDEF9F762DE05B2900001C85 /* Build configuration list for PBXNativeTarget "SwipeFlickUITests" */;
+			buildPhases = (
+				DDEF9F612DE05B2900001C85 /* Sources */,
+				DDEF9F622DE05B2900001C85 /* Frameworks */,
+				DDEF9F632DE05B2900001C85 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDEF9F672DE05B2900001C85 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DDEF9F682DE05B2900001C85 /* SwipeFlickUITests */,
+			);
+			name = SwipeFlickUITests;
+			packageProductDependencies = (
+			);
+			productName = SwipeFlickUITests;
+			productReference = DDEF9F652DE05B2900001C85 /* SwipeFlickUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DDEF9F3D2DE05B2800001C85 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1630;
+				LastUpgradeCheck = 1630;
+				TargetAttributes = {
+					DDEF9F442DE05B2800001C85 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					DDEF9F5A2DE05B2900001C85 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = DDEF9F442DE05B2800001C85;
+					};
+					DDEF9F642DE05B2900001C85 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = DDEF9F442DE05B2800001C85;
+					};
+				};
+			};
+			buildConfigurationList = DDEF9F402DE05B2800001C85 /* Build configuration list for PBXProject "SwipeFlick" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DDEF9F3C2DE05B2800001C85;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = DDEF9F462DE05B2800001C85 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DDEF9F442DE05B2800001C85 /* SwipeFlick */,
+				DDEF9F5A2DE05B2900001C85 /* SwipeFlickTests */,
+				DDEF9F642DE05B2900001C85 /* SwipeFlickUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DDEF9F432DE05B2800001C85 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEF9F592DE05B2900001C85 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEF9F632DE05B2900001C85 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DDEF9F412DE05B2800001C85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEF9F572DE05B2900001C85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEF9F612DE05B2900001C85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DDEF9F5D2DE05B2900001C85 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDEF9F442DE05B2800001C85 /* SwipeFlick */;
+			targetProxy = DDEF9F5C2DE05B2900001C85 /* PBXContainerItemProxy */;
+		};
+		DDEF9F672DE05B2900001C85 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDEF9F442DE05B2800001C85 /* SwipeFlick */;
+			targetProxy = DDEF9F662DE05B2900001C85 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DDEF9F6F2DE05B2900001C85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4Q6HZ73P2L;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwipeFlick/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SwipeFlick;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ischool.cainglet.SwipeFlick;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DDEF9F702DE05B2900001C85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4Q6HZ73P2L;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwipeFlick/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SwipeFlick;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ischool.cainglet.SwipeFlick;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DDEF9F712DE05B2900001C85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4Q6HZ73P2L;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DDEF9F722DE05B2900001C85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4Q6HZ73P2L;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DDEF9F742DE05B2900001C85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4Q6HZ73P2L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ischool.cainglet.SwipeFlickTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwipeFlick.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwipeFlick";
+			};
+			name = Debug;
+		};
+		DDEF9F752DE05B2900001C85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4Q6HZ73P2L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ischool.cainglet.SwipeFlickTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwipeFlick.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwipeFlick";
+			};
+			name = Release;
+		};
+		DDEF9F772DE05B2900001C85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4Q6HZ73P2L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ischool.cainglet.SwipeFlickUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SwipeFlick;
+			};
+			name = Debug;
+		};
+		DDEF9F782DE05B2900001C85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4Q6HZ73P2L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ischool.cainglet.SwipeFlickUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SwipeFlick;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DDEF9F402DE05B2800001C85 /* Build configuration list for PBXProject "SwipeFlick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDEF9F712DE05B2900001C85 /* Debug */,
+				DDEF9F722DE05B2900001C85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDEF9F6E2DE05B2900001C85 /* Build configuration list for PBXNativeTarget "SwipeFlick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDEF9F6F2DE05B2900001C85 /* Debug */,
+				DDEF9F702DE05B2900001C85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDEF9F732DE05B2900001C85 /* Build configuration list for PBXNativeTarget "SwipeFlickTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDEF9F742DE05B2900001C85 /* Debug */,
+				DDEF9F752DE05B2900001C85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDEF9F762DE05B2900001C85 /* Build configuration list for PBXNativeTarget "SwipeFlickUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDEF9F772DE05B2900001C85 /* Debug */,
+				DDEF9F782DE05B2900001C85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DDEF9F3D2DE05B2800001C85 /* Project object */;
+}
