@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="GpI-us-emm" customClass="SwipeViewController" customModule="SwipeFlick" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xk8-Z0-ZxB">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="kGr-dj-dgd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -28,25 +28,75 @@
             <objects>
                 <viewController id="Iwk-hI-9SO" customClass="WatchListViewController" customModule="SwipeFlick" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bb8-fR-JmN">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="4sj-LD-th3"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.20392158630000001" green="0.19607841970000001" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8qM-QH-jz6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="706"/>
+            <point key="canvasLocation" x="135.1145038167939" y="705.63380281690149"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwipeFlick" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7JV-6z-cal">
+                                <rect key="frame" x="0.0" y="488" width="320" height="80"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="y4P-wv-ytT">
+                                        <rect key="frame" x="23.5" y="23" width="273" height="34"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Sb-iN-enx">
+                                                <rect key="frame" x="0.0" y="0.0" width="48.5" height="34"/>
+                                                <color key="tintColor" red="0.54901963470000004" green="0.54901963470000004" blue="0.54901963470000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="waveform.badge.magnifyingglass" catalog="system"/>
+                                                <connections>
+                                                    <action selector="swipeNavigation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8wX-04-bLM"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYG-e2-5Sh">
+                                                <rect key="frame" x="108.5" y="0.0" width="54.5" height="34"/>
+                                                <color key="tintColor" red="0.54901963470000004" green="0.54901963470000004" blue="0.54901963470000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="list.dash.header.rectangle" catalog="system"/>
+                                                <connections>
+                                                    <action selector="watchListNavigation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PK8-xc-yOY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkg-fs-nqy">
+                                                <rect key="frame" x="223" y="0.0" width="50" height="34"/>
+                                                <color key="tintColor" red="0.54901963470000004" green="0.54901963470000004" blue="0.54901963470000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="person.crop.circle" catalog="system"/>
+                                                <connections>
+                                                    <action selector="profileNavigation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="57h-he-DZJ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.32941177490000001" green="0.32156863810000003" blue="0.32156863810000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="6ru-Hv-4IL"/>
+                                    <constraint firstItem="y4P-wv-ytT" firstAttribute="centerX" secondItem="7JV-6z-cal" secondAttribute="centerX" id="n3j-2G-LQg"/>
+                                    <constraint firstItem="y4P-wv-ytT" firstAttribute="centerY" secondItem="7JV-6z-cal" secondAttribute="centerY" id="o5z-eT-gAh"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.20392158630000001" green="0.19607841970000001" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="7JV-6z-cal" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="FZH-iy-TVT"/>
+                            <constraint firstItem="7JV-6z-cal" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="T1S-5H-xRw"/>
+                            <constraint firstItem="7JV-6z-cal" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="WWo-ah-uZB"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="GpI-us-emm" kind="presentation" identifier="goToSwipePage" id="eaN-Te-CYh"/>
@@ -56,14 +106,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="-39"/>
+            <point key="canvasLocation" x="135.1145038167939" y="-39.436619718309863"/>
         </scene>
         <!--User Profile View Controller-->
         <scene sceneID="ryJ-eY-QHV">
             <objects>
                 <viewController id="4xa-Y3-L84" customClass="UserProfileViewController" customModule="SwipeFlick" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qFy-Tg-2c6">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="lgY-G3-Whp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -75,6 +125,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="list.dash.header.rectangle" catalog="system" width="128" height="93"/>
+        <image name="person.crop.circle" catalog="system" width="128" height="123"/>
+        <image name="waveform.badge.magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
