@@ -13,12 +13,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func swipeNavigation(_ sender: UIButton) {
-        
+        self.performSegue(withIdentifier: "goToSwipePage", sender: self)
     }
     
     
     @IBAction func profileNavigation(_ sender: UIButton) {
-        
+        self.performSegue(withIdentifier: "goToUserProfile", sender: self)
     }
     
     override func viewDidLoad() {
