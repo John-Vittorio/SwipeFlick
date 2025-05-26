@@ -9,9 +9,17 @@ import UIKit
 
 class SwipeViewController: UIViewController {
 
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var movieDescription: UIImageView!
+    @IBOutlet weak var dislikeButton: UIButton!
+    @IBOutlet weak var likeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        likeButton.layer.cornerRadius = likeButton.frame.size.width / 2
+        likeButton.clipsToBounds = true
+        dislikeButton.layer.cornerRadius = likeButton.frame.size.width / 2
+        dislikeButton.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
     
