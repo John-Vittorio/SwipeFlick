@@ -7,23 +7,37 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController {
-
+class UserProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    let profileStats = ["🍿 Movies Watched: 2", "📋 Watchlist: 4", "❤️ Most Watched Genre: Horror"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func unwind(_ unwindSegue: UIStoryboardSegue) {
+        
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath)
+        cell.textLabel?.text = profileStats[indexPath.row];
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 24, weight: .regular)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false;
+    }
+    
 }
+
