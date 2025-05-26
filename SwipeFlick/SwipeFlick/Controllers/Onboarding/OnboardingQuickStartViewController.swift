@@ -1,0 +1,41 @@
+//
+//  OnboardingQuickStartViewController.swift
+//  SwipeFlick
+//
+//  Created by Amber Wu on 5/26/25.
+//
+
+import UIKit
+
+class OnboardingQuickStartViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func toSwipeController(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let swipeVC = storyboard.instantiateViewController(withIdentifier: "SwipeViewController") as? SwipeViewController {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let sceneDelegate = windowScene.delegate as? SceneDelegate,
+                  let window = sceneDelegate.window else { return }
+            window.rootViewController = swipeVC
+            window.makeKeyAndVisible()
+            
+            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: nil)
+        }
+    }
+    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
