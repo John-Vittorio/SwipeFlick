@@ -23,6 +23,28 @@ class SwipeViewController: UIViewController {
         setupUI()
         loadMovies()
         displayCurrentMovie()
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeLeft(_:)))
+        swipeLeft.direction = .left
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeRight(_:)))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeLeft)
+        self.view.addGestureRecognizer(swipeRight)
+    }
+    
+    @objc func handleSwipeLeft(_ gesture: UISwipeGestureRecognizer) {
+        handleSwipe(direction: .left)
+    }
+    
+    @objc func handleSwipeRight(_ gesture: UISwipeGestureRecognizer) {
+        if currentMovieIndex < movies.count {
+            let movie = movies[currentMovieIndex]
+            WatchlistManager.shared.addToWatchlist(movie)
+            
+            // Show brief feedback
+            showWatchlistFeedback()
+        }
+        handleSwipe(direction: .right)
     }
     
     private func setupUI() {
