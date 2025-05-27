@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if hasCompletedOnboarding {
             window.rootViewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
         } else {
-            window.rootViewController = storyboard.instantiateViewController(withIdentifier: "OnboardingWelcome")
+            window.rootViewController = storyboard.instantiateInitialViewController()
         }
         
         self.window = window

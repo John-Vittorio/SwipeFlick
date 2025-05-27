@@ -555,10 +555,10 @@
             </objects>
             <point key="canvasLocation" x="-728" y="1481"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--OnboardingNav-->
         <scene sceneID="9Qt-2e-Fm8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lVR-1U-rj3" sceneMemberID="viewController">
+                <navigationController title="OnboardingNav" automaticallyAdjustsScrollViewInsets="NO" id="lVR-1U-rj3" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rxd-y8-F7I">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
