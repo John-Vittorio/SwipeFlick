@@ -17,11 +17,13 @@ class OnboardingQuickStartViewController: UIViewController {
     
     @IBAction func toSwipeController(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let swipeVC = storyboard.instantiateViewController(withIdentifier: "SwipeViewController") as? SwipeViewController {
+        if let tabBarController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController {
+            
             guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                   let sceneDelegate = windowScene.delegate as? SceneDelegate,
                   let window = sceneDelegate.window else { return }
-            window.rootViewController = swipeVC
+            
+            window.rootViewController = tabBarController
             window.makeKeyAndVisible()
             
             UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: nil)
