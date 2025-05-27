@@ -63,11 +63,51 @@ class SwipeViewController: UIViewController {
     }
     
     @objc private func likeButtonTapped() {
+        // Add movie to watchlist when liked
+        if currentMovieIndex < movies.count {
+            let movie = movies[currentMovieIndex]
+            WatchlistManager.shared.addToWatchlist(movie)
+            
+            // Show brief feedback
+            showWatchlistFeedback()
+        }
         handleSwipe(direction: .right)
     }
     
     @objc private func dislikeButtonTapped() {
         handleSwipe(direction: .left)
+    }
+    
+    private func showWatchlistFeedback() {
+        let feedbackLabel = UILabel()
+        feedbackLabel.text = "Added to Watchlist ✓"
+        feedbackLabel.textColor = .systemGreen
+        feedbackLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        feedbackLabel.textAlignment = .center
+        feedbackLabel.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        feedbackLabel.layer.cornerRadius = 8
+        feedbackLabel.clipsToBounds = true
+        feedbackLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(feedbackLabel)
+        
+        NSLayoutConstraint.activate([
+            feedbackLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            feedbackLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            feedbackLabel.widthAnchor.constraint(equalToConstant: 200),
+            feedbackLabel.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        feedbackLabel.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            feedbackLabel.alpha = 1
+        }) { _ in
+            UIView.animate(withDuration: 0.3, delay: 1.0, animations: {
+                feedbackLabel.alpha = 0
+            }) { _ in
+                feedbackLabel.removeFromSuperview()
+            }
+        }
     }
     
     private func handleSwipe(direction: UISwipeGestureRecognizer.Direction) {

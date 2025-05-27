@@ -11,11 +11,17 @@ class WatchListViewController: UIViewController {
     
     // MARK: - Properties
     private var collectionView: UICollectionView!
-    private var sampleMovies = ["Sample Movie 1", "Sample Movie 2", "Avengers", "Spider-Man", "Batman", "Iron Man"]
+    private var watchlistMovies: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        loadWatchlist()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadWatchlist() // Refresh watchlist when view appears
     }
     
     override func viewDidLayoutSubviews() {
@@ -45,6 +51,67 @@ class WatchListViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    private func loadWatchlist() {
+        watchlistMovies = WatchlistManager.shared.getWatchlist()
+        collectionView.reloadData()
+        
+        if watchlistMovies.isEmpty {
+            showEmptyState()
+        } else {
+            hideEmptyState()
+        }
+    }
+    
+    private var emptyStateView: UIView?
+    
+    private func showEmptyState() {
+        guard emptyStateView == nil else { return }
+        
+        let emptyView = UIView()
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let emptyLabel = UILabel()
+        emptyLabel.text = "Your watchlist is empty"
+        emptyLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        emptyLabel.textColor = .secondaryLabel
+        emptyLabel.textAlignment = .center
+        emptyLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let subtitleLabel = UILabel()
+        subtitleLabel.text = "Movies you like will appear here"
+        subtitleLabel.font = UIFont.systemFont(ofSize: 14)
+        subtitleLabel.textColor = .tertiaryLabel
+        subtitleLabel.textAlignment = .center
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        emptyView.addSubview(emptyLabel)
+        emptyView.addSubview(subtitleLabel)
+        view.addSubview(emptyView)
+        
+        NSLayoutConstraint.activate([
+            emptyView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            emptyView.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 20),
+            emptyView.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -20),
+            
+            emptyLabel.topAnchor.constraint(equalTo: emptyView.topAnchor),
+            emptyLabel.leadingAnchor.constraint(equalTo: emptyView.leadingAnchor),
+            emptyLabel.trailingAnchor.constraint(equalTo: emptyView.trailingAnchor),
+            
+            subtitleLabel.topAnchor.constraint(equalTo: emptyLabel.bottomAnchor, constant: 8),
+            subtitleLabel.leadingAnchor.constraint(equalTo: emptyView.leadingAnchor),
+            subtitleLabel.trailingAnchor.constraint(equalTo: emptyView.trailingAnchor),
+            subtitleLabel.bottomAnchor.constraint(equalTo: emptyView.bottomAnchor)
+        ])
+        
+        emptyStateView = emptyView
+    }
+    
+    private func hideEmptyState() {
+        emptyStateView?.removeFromSuperview()
+        emptyStateView = nil
     }
     
     private func updateCollectionViewLayout() {
@@ -77,26 +144,28 @@ class WatchListViewController: UIViewController {
     }
 }
 
-// MARK: - UICollectionViewDataSource
 extension WatchListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sampleMovies.count
+        return watchlistMovies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCardCell", for: indexPath) as! MovieCardCell
-        cell.configure(with: sampleMovies[indexPath.item])
+        let movie = watchlistMovies[indexPath.item]
+        cell.configure(with: movie.title, imageURL: movie.imageURL)
+        cell.onRemove = { [weak self] in
+            self?.removeMovieFromWatchlist(at: indexPath)
+        }
         return cell
     }
 }
 
-// MARK: - UICollectionViewDelegate
 extension WatchListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedMovie = sampleMovies[indexPath.item]
-        print("Tapped on: \(selectedMovie)")
+        let selectedMovie = watchlistMovies[indexPath.item]
+        print("Tapped on: \(selectedMovie.title)")
         
         let impactFeedback = UIImpactFeedbackGenerator(style: .light)
         impactFeedback.impactOccurred()
@@ -104,39 +173,42 @@ extension WatchListViewController: UICollectionViewDelegate {
         navigateToMovieProfile(with: selectedMovie)
     }
     
-    private func navigateToMovieProfile(with movieTitle: String) {
-        
-        print("Attempting to navigate to movie profile for: \(movieTitle)")
+    private func navigateToMovieProfile(with movie: Movie) {
+        print("Attempting to navigate to movie profile for: \(movie.title)")
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if let movieProfileVC = storyboard.instantiateViewController(withIdentifier: "MovieProfileViewController") as? MovieProfileViewController {
-            
             print("Successfully created MovieProfileViewController")
-            
-            let foundMovie = Movie.mockMovies.first { movie in
-                movie.title.lowercased().contains(movieTitle.lowercased()) ||
-                movieTitle.lowercased().contains(movie.title.lowercased())
-            }
-            
-            if let movie = foundMovie {
-                movieProfileVC.selectedMovie = movie
-            } else {
-                movieProfileVC.movieTitle = movieTitle
-            }
-            
+            movieProfileVC.selectedMovie = movie
             navigationController?.pushViewController(movieProfileVC, animated: true)
         }
     }
+    
+    private func removeMovieFromWatchlist(at indexPath: IndexPath) {
+        let movie = watchlistMovies[indexPath.item]
+        
+        let alert = UIAlertController(title: "Remove from Watchlist", message: "Are you sure you want to remove \"\(movie.title)\" from your watchlist?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Remove", style: .destructive) { [weak self] _ in
+            WatchlistManager.shared.removeFromWatchlist(movie)
+            self?.loadWatchlist()
+        })
+        
+        present(alert, animated: true)
+    }
 }
 
-// MARK: - Custom Movie Card Cell
 class MovieCardCell: UICollectionViewCell {
     
     private let posterImageView = UIImageView()
     private let titleLabel = UILabel()
     private let titleBackground = UIView()
     private let cardBackground = UIView()
+    private let removeButton = UIButton()
+    
+    var onRemove: (() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -210,6 +282,14 @@ class MovieCardCell: UICollectionViewCell {
         titleLabel.numberOfLines = 2
         titleLabel.lineBreakMode = .byWordWrapping
         
+        // Remove button setup
+        removeButton.translatesAutoresizingMaskIntoConstraints = false
+        removeButton.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+        removeButton.tintColor = .systemRed
+        removeButton.backgroundColor = UIColor.white.withAlphaComponent(0.9)
+        removeButton.layer.cornerRadius = 12
+        removeButton.addTarget(self, action: #selector(removeButtonTapped), for: .touchUpInside)
+        
         let filmIcon = UIImageView(image: UIImage(systemName: "film.fill"))
         filmIcon.translatesAutoresizingMaskIntoConstraints = false
         filmIcon.tintColor = UIColor.white.withAlphaComponent(0.15)
@@ -220,6 +300,7 @@ class MovieCardCell: UICollectionViewCell {
         posterImageView.addSubview(filmIcon)
         posterImageView.addSubview(titleBackground)
         titleBackground.addSubview(titleLabel)
+        cardBackground.addSubview(removeButton)
         
         NSLayoutConstraint.activate([
             cardBackground.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -245,10 +326,19 @@ class MovieCardCell: UICollectionViewCell {
             titleLabel.topAnchor.constraint(equalTo: titleBackground.topAnchor, constant: 6),
             titleLabel.leadingAnchor.constraint(equalTo: titleBackground.leadingAnchor, constant: 8),
             titleLabel.trailingAnchor.constraint(equalTo: titleBackground.trailingAnchor, constant: -8),
-            titleLabel.bottomAnchor.constraint(equalTo: titleBackground.bottomAnchor, constant: -6)
+            titleLabel.bottomAnchor.constraint(equalTo: titleBackground.bottomAnchor, constant: -6),
+            
+            removeButton.topAnchor.constraint(equalTo: cardBackground.topAnchor, constant: 4),
+            removeButton.trailingAnchor.constraint(equalTo: cardBackground.trailingAnchor, constant: -4),
+            removeButton.widthAnchor.constraint(equalToConstant: 24),
+            removeButton.heightAnchor.constraint(equalToConstant: 24)
         ])
         
         setupHoverAnimation()
+    }
+    
+    @objc private func removeButtonTapped() {
+        onRemove?()
     }
     
     private func setupHoverAnimation() {
@@ -280,7 +370,17 @@ class MovieCardCell: UICollectionViewCell {
         }
     }
     
-    func configure(with title: String) {
+    func configure(with title: String, imageURL: String? = nil) {
         titleLabel.text = title
+        
+        if let urlString = imageURL, let url = URL(string: urlString) {
+            URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+                if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.posterImageView.image = image
+                    }
+                }
+            }.resume()
+        }
     }
 }
