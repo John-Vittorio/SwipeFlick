@@ -100,6 +100,29 @@ extension WatchListViewController: UICollectionViewDelegate {
         
         let impactFeedback = UIImpactFeedbackGenerator(style: .light)
         impactFeedback.impactOccurred()
+        
+        navigateToMovieProfile(with: selectedMovie)
+        
+    }
+    private func navigateToMovieProfile(with movieTitle: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if let movieProfileVC = storyboard.instantiateViewController(withIdentifier: "MovieProfileViewController") as? MovieProfileViewController {
+            
+            let foundMovie = Movie.mockMovies.first { movie in
+                movie.title.lowercased().contains(movieTitle.lowercased()) ||
+                movieTitle.lowercased().contains(movie.title.lowercased())
+            }
+            
+            if let movie = foundMovie {
+                movieProfileVC.selectedMovie = movie
+            } else {
+                movieProfileVC.movieTitle = movieTitle
+            }
+            
+            navigationController?.pushViewController(movieProfileVC, animated: true)
+//            present(movieProfileVC, animated: true)
+        }
     }
 }
 
