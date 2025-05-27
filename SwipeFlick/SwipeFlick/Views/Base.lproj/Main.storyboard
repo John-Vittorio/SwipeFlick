@@ -490,7 +490,7 @@
                                     <color key="baseForegroundColor" red="0.96841150519999997" green="0.93266098099999994" blue="0.44851636379999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="GL2-4e-rqk" kind="push" animates="NO" id="eGS-9S-D7M"/>
+                                    <segue destination="GL2-4e-rqk" kind="show" animates="NO" id="eGS-9S-D7M"/>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="5Za-Gm-hnl">
