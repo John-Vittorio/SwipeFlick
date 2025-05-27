@@ -11,11 +11,15 @@ class OnboardingQuickStartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
     @IBAction func toSwipeController(_ sender: Any) {
+
+        UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
+        print(UserDefaults.standard.bool(forKey: "hasCompletedOnboarding"))
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let tabBarController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController {
             

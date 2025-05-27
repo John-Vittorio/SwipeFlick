@@ -490,7 +490,7 @@
                                     <color key="baseForegroundColor" red="0.96841150519999997" green="0.93266098099999994" blue="0.44851636379999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="GL2-4e-rqk" kind="show" id="eGS-9S-D7M"/>
+                                    <segue destination="GL2-4e-rqk" kind="push" animates="NO" id="eGS-9S-D7M"/>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="5Za-Gm-hnl">
@@ -595,7 +595,7 @@
                                     <color key="baseForegroundColor" red="0.96862745289999996" green="0.93333333730000001" blue="0.44705885649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="8gd-1S-eBh" kind="show" id="VD9-fg-gOP"/>
+                                    <segue destination="8gd-1S-eBh" kind="show" animates="NO" id="VD9-fg-gOP"/>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="FbO-27-bHA">
@@ -850,7 +850,7 @@
                                     <color key="baseForegroundColor" red="0.96862745289999996" green="0.93333333730000001" blue="0.44705885649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="IfP-DF-cQb" kind="show" id="kOy-3y-wnj"/>
+                                    <segue destination="IfP-DF-cQb" kind="show" animates="NO" id="kOy-3y-wnj"/>
                                 </connections>
                             </button>
                         </subviews>
