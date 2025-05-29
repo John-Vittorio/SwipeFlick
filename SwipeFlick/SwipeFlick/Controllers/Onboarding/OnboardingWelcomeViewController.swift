@@ -10,7 +10,13 @@ import UIKit
 class OnboardingWelcomeViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
-
+    @IBAction func tapNextBtn(_ sender: Any) {
+        let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let finalName = (name?.isEmpty ?? true) ? "Guest" : name!
+        UserDefaults.standard.set(finalName, forKey: "username")
+        print(UserDefaults.standard.string(forKey: "username")!)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -16,7 +16,7 @@ class OnboardingGenreViewController: UIViewController, UICollectionViewDataSourc
 
     @IBOutlet weak var genreCollectionView: UICollectionView!
     
-    let genres = ["Horror", "Action", "Drama", "Romance", "Comedy", "Fantasy", "Sci-fi", "Thriller", "Adventure", "Crime/Mystery", "Western", "Historical"]
+    let genres = ["Horror", "Action", "Drama", "Romance", "Comedy", "Fantasy", "Sci-fi", "Thriller", "Adventure", "Crime", "Western", "Historical"]
     var selectedGenres: Set<String> = []
     
     override func viewDidLoad() {
