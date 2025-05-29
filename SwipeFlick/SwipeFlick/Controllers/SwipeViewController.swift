@@ -17,6 +17,8 @@ class SwipeViewController: UIViewController {
     
     private var currentMovieIndex = 0
     private var movies: [Movie] = []
+    private var numMoviesSwipedRight = 0
+    private var moviesSwipedRight: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +39,7 @@ class SwipeViewController: UIViewController {
     }
     
     @objc func handleSwipeRight(_ gesture: UISwipeGestureRecognizer) {
-        if currentMovieIndex < movies.count {
-            let movie = movies[currentMovieIndex]
-            WatchlistManager.shared.addToWatchlist(movie)
-            
-            // Show brief feedback
-            showWatchlistFeedback()
-        }
-        handleSwipe(direction: .right)
+        likeButtonTapped();
     }
     
     private func setupUI() {
@@ -85,15 +80,28 @@ class SwipeViewController: UIViewController {
     }
     
     @objc private func likeButtonTapped() {
-        // Add movie to watchlist when liked
         if currentMovieIndex < movies.count {
             let movie = movies[currentMovieIndex]
             WatchlistManager.shared.addToWatchlist(movie)
             
-            // Show brief feedback
             showWatchlistFeedback()
         }
         handleSwipe(direction: .right)
+        
+        numMoviesSwipedRight += 1
+        moviesSwipedRight.append(movies[currentMovieIndex])
+        if (numMoviesSwipedRight == 5) {
+            pickRandomMovie()
+        }
+    }
+    
+    private func pickRandomMovie() {
+        let randomMovie = moviesSwipedRight.randomElement() ?? Movie.mockMovies[0]
+        let alert = UIAlertController(title: "🍿 Movie matched!", message: "We think you might like \"\(randomMovie.title)\"!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        moviesSwipedRight.removeAll()
+        numMoviesSwipedRight = 0
     }
     
     @objc private func dislikeButtonTapped() {
