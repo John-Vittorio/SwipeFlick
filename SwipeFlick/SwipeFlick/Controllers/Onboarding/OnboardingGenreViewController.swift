@@ -15,6 +15,11 @@ class GenreCell: UICollectionViewCell {
 class OnboardingGenreViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var genreCollectionView: UICollectionView!
+    @IBAction func tapNextBtn(_ sender: Any) {
+        let finalSelectedGenres = Array(selectedGenres)
+        print(finalSelectedGenres)
+        UserDefaults.standard.set(finalSelectedGenres, forKey: "userGenrePreferences")
+    }
     
     let genres = ["Horror", "Action", "Drama", "Romance", "Comedy", "Fantasy", "Sci-fi", "Thriller", "Adventure", "Crime", "Western", "Historical"]
     var selectedGenres: Set<String> = []

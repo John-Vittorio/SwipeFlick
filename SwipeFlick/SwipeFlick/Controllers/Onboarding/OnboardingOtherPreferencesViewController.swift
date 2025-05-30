@@ -17,6 +17,12 @@ class OnboardingOtherPreferencesViewController: UIViewController, UICollectionVi
     @IBOutlet weak var ageRatingCollectionView: UICollectionView!
     @IBOutlet weak var fromYearTextField: UITextField!
     @IBOutlet weak var toYearTextField: UITextField!
+    @IBAction func tapNextBtn(_ sender: Any) {
+        let finalSelectedMediums = Array(selectedMediums)
+        let finalSelectedRatings = Array(selectedRatings)
+        UserDefaults.standard.set(finalSelectedMediums, forKey: "userMediumPreferences")
+        UserDefaults.standard.set(finalSelectedRatings, forKey: "userRatingPreferences")
+    }
     
     let mediums = ["Live-Action", "Animation", "Stop-Motion", "Anime"]
     let ageRatings = ["G", "PG", "PG-13", "R", "NC-17"]
