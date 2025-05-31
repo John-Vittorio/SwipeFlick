@@ -22,6 +22,10 @@ class OnboardingOtherPreferencesViewController: UIViewController, UICollectionVi
         let finalSelectedRatings = Array(selectedRatings)
         UserDefaults.standard.set(finalSelectedMediums, forKey: "userMediumPreferences")
         UserDefaults.standard.set(finalSelectedRatings, forKey: "userRatingPreferences")
+        let fromMovieAge = Int(fromYearTextField.text ?? "") ?? 1900
+        let toMovieAge = Int(toYearTextField.text ?? "") ?? 2050
+        let finalMovieAge = [fromMovieAge, toMovieAge]
+        UserDefaults.standard.set(finalMovieAge, forKey: "userMovieAgePreferences")
     }
     
     let mediums = ["Live-Action", "Animation", "Stop-Motion", "Anime"]
