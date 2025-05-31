@@ -9,6 +9,7 @@ import UIKit
 
 class UserProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     let profileStats = ["🍿 Movies Watched: 2", "📋 Watchlist: 4", "❤️ Most Watched Genre: Horror"]
@@ -18,6 +19,16 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        print(UserDefaults.standard.string(forKey: "username")!)
+        
+        guard UserDefaults.standard.string(forKey: "username") == "guest" else {
+            profileName.text = "\(UserDefaults.standard.string(forKey: "username")!)'s Profile"
+            return
+        }
+//        print(Array(UserDefaults.standard.dictionaryRepresentation()))
+        print(UserDefaults.standard.array(forKey: "userGenrePreferences")!)
+        print(UserDefaults.standard.array(forKey: "userRatingPreferences")!)
+        print(UserDefaults.standard.array(forKey: "userMediumPreferences")!)
     }
     
     @IBAction func unwind(_ unwindSegue: UIStoryboardSegue) {

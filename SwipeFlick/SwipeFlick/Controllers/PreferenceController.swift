@@ -10,6 +10,8 @@ import UIKit
 class PreferenceController: UIViewController {
 
     @IBOutlet weak var genreBtn: UIButton!
+    @IBOutlet weak var firstYear: UITextField!
+    @IBOutlet weak var secondYear: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +23,12 @@ class PreferenceController: UIViewController {
         
     }
     
-
+    @IBAction func saveChanges(_ sender: Any) {
+        if firstYear.text != "", secondYear.text != "" {
+            return
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

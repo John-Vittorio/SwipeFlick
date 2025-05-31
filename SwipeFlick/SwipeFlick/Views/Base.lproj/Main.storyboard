@@ -167,8 +167,8 @@
                                     <segue destination="AKh-vp-Xlu" kind="show" id="MQT-eG-2be"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MARNIE'S PROFILE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcB-xQ-vFd">
-                                <rect key="frame" x="40" y="149" width="240" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROFILE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcB-xQ-vFd">
+                                <rect key="frame" x="106" y="149" width="108" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -203,6 +203,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="vsO-cG-0XZ"/>
                     <connections>
+                        <outlet property="profileName" destination="wcB-xQ-vFd" id="n2F-L7-VkW"/>
                         <outlet property="tableView" destination="DVD-re-svq" id="59p-WZ-Iin"/>
                     </connections>
                 </viewController>
@@ -353,8 +354,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Dpb-E6-zXO">
-                                <rect key="frame" x="16" y="394.5" width="342" height="34.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dpb-E6-zXO">
+                                <rect key="frame" x="16" y="394.5" width="288" height="34.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLt-Ch-tSz">
                                         <rect key="frame" x="0.0" y="0.0" width="72" height="34.5"/>
@@ -362,19 +363,19 @@
                                         <buttonConfiguration key="configuration" style="filled" title="G"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7D-24-OF2">
-                                        <rect key="frame" x="90" y="0.0" width="72" height="34.5"/>
+                                        <rect key="frame" x="72" y="0.0" width="72" height="34.5"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="PG"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eth-jy-kW3">
-                                        <rect key="frame" x="180" y="0.0" width="72" height="34.5"/>
+                                        <rect key="frame" x="144" y="0.0" width="72" height="34.5"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="PG-13"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3x-fY-saW">
-                                        <rect key="frame" x="270" y="0.0" width="72" height="34.5"/>
+                                        <rect key="frame" x="216" y="0.0" width="72" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="R"/>
                                     </button>
@@ -412,14 +413,15 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Save Changes"/>
                                 <connections>
+                                    <action selector="saveChanges:" destination="AKh-vp-Xlu" eventType="touchUpInside" id="vEu-2w-UtV"/>
                                     <segue destination="gVT-hH-rSa" kind="unwind" unwindAction="unwind:" id="WRl-lb-FQ0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mP-h5-gMA">
-                                <rect key="frame" x="6" y="222" width="124.5" height="32.5"/>
+                                <rect key="frame" x="6" y="222" width="197" height="32.5"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="GENRES &gt;&gt;&gt;">
+                                <buttonConfiguration key="configuration" style="plain" title="CHANGE GENRES &gt;&gt;&gt;">
                                     <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -461,7 +463,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="hxG-ts-cWe"/>
                     <connections>
+                        <outlet property="firstYear" destination="ZY0-Gf-6j0" id="qom-Kl-Hn9"/>
                         <outlet property="genreBtn" destination="1mP-h5-gMA" id="4cF-dG-sqm"/>
+                        <outlet property="secondYear" destination="h0V-3y-nNq" id="DuD-6A-TMx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SIx-KK-hgb" sceneMemberID="firstResponder"/>
@@ -1089,6 +1093,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Save Changes"/>
                                 <connections>
+                                    <action selector="saveChanges:" destination="zEt-tQ-js7" eventType="touchUpInside" id="zyb-Hd-iLG"/>
                                     <segue destination="i5m-2u-hAY" kind="unwind" unwindAction="unwindToSettings:" id="1hJ-BY-VRs"/>
                                 </connections>
                             </button>
