@@ -1,45 +1,46 @@
 //
-//  GenreController.swift
+//  AgeRatingController.swift
 //  Project Testing
 //
-//  Created by James Nguyen on 5/25/25.
+//  Created by James Nguyen on 5/31/25.
 //
 
 import UIKit
 
 
-class GenreController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AgeRatingController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var genreTable: UITableView!
+    @IBOutlet weak var ageRatingTable: UITableView!
     
-    let genres = ["Horror", "Action", "Drama", "Romance", "Comedy", "Fantasy", "Sci-fi", "Thriller", "Adventure", "Crime", "Western", "Historical"]
-    var selectedGenres : [String] = []
+//    let mediums = ["Live-Action", "Animation", "Stop-Motion", "Anime"]
+    let ageRatings = ["G", "PG", "PG-13", "R", "NC-17"]
+    var selectedRatings : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        selectedGenres = UserDefaults.standard.array(forKey: "userGenrePreferences") as! [String]
-        genreTable.delegate = self
-        genreTable.dataSource = self
-        print(UserDefaults.standard.array(forKey: "userGenrePreferences")!)
+        selectedRatings = UserDefaults.standard.array(forKey: "userRatingPreferences") as! [String]
+        ageRatingTable.delegate = self
+        ageRatingTable.dataSource = self
+        print(UserDefaults.standard.array(forKey: "userRatingPreferences")!)
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return genres.count
+        return ageRatings.count
     }
     
     @IBAction func saveChanges(_ sender: Any) {
-        UserDefaults.standard.set(selectedGenres, forKey: "userGenrePreferences")
-        print(UserDefaults.standard.array(forKey: "userGenrePreferences")!)
+        UserDefaults.standard.set(selectedRatings, forKey: "userRatingPreferences")
+        print(UserDefaults.standard.array(forKey: "userRatingPreferences")!)
         navigationController?.popViewController(animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GenreCell", for: indexPath)
-        cell.textLabel?.text = genres[indexPath.row];
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RatingCell", for: indexPath)
+        cell.textLabel?.text = ageRatings[indexPath.row];
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20, weight: .regular)
-        if selectedGenres.contains(cell.textLabel?.text ?? "") {
+        if selectedRatings.contains(cell.textLabel?.text ?? "") {
             cell.accessoryType = .checkmark
         }
         return cell
@@ -49,12 +50,12 @@ class GenreController: UIViewController, UITableViewDataSource, UITableViewDeleg
         if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
             if let cell = tableView.cellForRow(at: indexPath) {
-                selectedGenres.removeAll(where: { $0 == cell.textLabel!.text})
+                selectedRatings.removeAll(where: { $0 == cell.textLabel!.text})
             }
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-            if let cell = tableView.cellForRow(at: indexPath), !selectedGenres.contains(cell.textLabel!.text ?? "") {
-                selectedGenres.append(cell.textLabel!.text ?? "")
+            if let cell = tableView.cellForRow(at: indexPath), !selectedRatings.contains(cell.textLabel!.text ?? "") {
+                selectedRatings.append(cell.textLabel!.text ?? "")
             }
         }
         tableView.deselectRow(at: indexPath, animated: true)
@@ -72,3 +73,4 @@ class GenreController: UIViewController, UITableViewDataSource, UITableViewDeleg
     */
 
 }
+
