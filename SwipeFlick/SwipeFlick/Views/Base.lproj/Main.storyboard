@@ -465,6 +465,7 @@
                     <connections>
                         <outlet property="firstYear" destination="ZY0-Gf-6j0" id="qom-Kl-Hn9"/>
                         <outlet property="genreBtn" destination="1mP-h5-gMA" id="4cF-dG-sqm"/>
+                        <outlet property="name" destination="ipP-Qd-mfu" id="JHv-1A-CcH"/>
                         <outlet property="secondYear" destination="h0V-3y-nNq" id="DuD-6A-TMx"/>
                     </connections>
                 </viewController>

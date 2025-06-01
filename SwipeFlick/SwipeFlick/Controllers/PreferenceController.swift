@@ -12,11 +12,17 @@ class PreferenceController: UIViewController {
     @IBOutlet weak var genreBtn: UIButton!
     @IBOutlet weak var firstYear: UITextField!
     @IBOutlet weak var secondYear: UITextField!
+    @IBOutlet weak var name: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         genreBtn.contentHorizontalAlignment = .left
-
+        if UserDefaults.standard.string(forKey: "username") != "Guest" {
+            name.text = UserDefaults.standard.string(forKey: "username");
+        }
+        if UserDefaults.standard.array(forKey: "userMovieAgePreferences") != nil {
+            print(UserDefaults.standard.array(forKey: "userMovieAgePreferences") ?? ["", ""])
+        }
     }
     
     @IBAction func unwindToSettings(_ unwindSegue: UIStoryboardSegue) {
@@ -24,8 +30,18 @@ class PreferenceController: UIViewController {
     }
     
     @IBAction func saveChanges(_ sender: Any) {
+        // userMovieAgePreferences
+        // username
         if firstYear.text != "", secondYear.text != "" {
-            return
+            let fromMovieAge = Int(firstYear.text ?? "") ?? 1900
+            let toMovieAge = Int(secondYear.text ?? "") ?? 2050
+            let finalMovieAge = [fromMovieAge, toMovieAge]
+            UserDefaults.standard.set(finalMovieAge, forKey: "userMovieAgePreferences")
+            print(UserDefaults.standard.array(forKey: "userMovieAgePreferences") ?? ["", ""])
+        }
+        
+        if UserDefaults.standard.string(forKey: "username") != name.text {
+            UserDefaults.standard.set(name.text, forKey: "username")
         }
     }
     

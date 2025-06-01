@@ -31,6 +31,13 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
         print(UserDefaults.standard.array(forKey: "userMediumPreferences")!)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        guard UserDefaults.standard.string(forKey: "username") == "guest" else {
+            profileName.text = "\(UserDefaults.standard.string(forKey: "username")!)'s Profile"
+            return
+        }
+    }
+    
     @IBAction func unwind(_ unwindSegue: UIStoryboardSegue) {
         
     }
