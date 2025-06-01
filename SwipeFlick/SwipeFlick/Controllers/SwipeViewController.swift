@@ -54,6 +54,65 @@ class SwipeViewController: UIViewController {
     
     private func loadMovies() {
         movies = Movie.mockMovies
+        print("Initial movies count: \(movies.count)")
+        
+        let genres = UserDefaults.standard.array(forKey: "userGenrePreferences") as? [String]
+        let ratings = UserDefaults.standard.array(forKey: "userRatingPreferences") as? [String]
+        let mediums = UserDefaults.standard.array(forKey: "userMediumPreferences") as? [String]
+        let movieAge = UserDefaults.standard.array(forKey: "userMovieAgePreferences") as? [Int]
+        
+        print("User Preferences:")
+        print("Genres: \(genres ?? [])")
+        print("Ratings: \(ratings ?? [])")
+        print("Mediums: \(mediums ?? [])")
+        print("Movie Age: \(movieAge ?? [])")
+        
+        movies = movies.filter { movie in
+            print("\nChecking movie: \(movie.title)")
+            
+            if let genres = genres, !genres.isEmpty {
+                let hasMatchingGenre = movie.genre.contains { genre in
+                    genres.contains(genre)
+                }
+                print("Genre match: \(hasMatchingGenre)")
+                if !hasMatchingGenre {
+                    return false
+                }
+            }
+            
+            if let ratings = ratings, !ratings.isEmpty {
+                let hasMatchingRating = ratings.contains(movie.rating)
+                print("Rating match: \(hasMatchingRating)")
+                if !hasMatchingRating {
+                    return false
+                }
+            }
+            
+            if let mediums = mediums, !mediums.isEmpty {
+                let hasMatchingMedium = mediums.contains(movie.medium)
+                print("Medium match: \(hasMatchingMedium)")
+                if !hasMatchingMedium {
+                    return false
+                }
+            }
+            
+            if let movieAge = movieAge, !movieAge.isEmpty {
+                let currentYear = Calendar.current.component(.year, from: Date())
+                let movieAgeInYears = currentYear - movie.releaseYear
+                let isInRange = movieAge.contains { age in
+                    movieAgeInYears <= age
+                }
+                print("Age match: \(isInRange) (Movie age: \(movieAgeInYears) years)")
+                if !isInRange {
+                    return false
+                }
+            }
+            
+            print("Movie passed all filters!")
+            return true
+        }
+        
+        print("\nFinal filtered movies count: \(movies.count)")
     }
     
     private func displayCurrentMovie() {
@@ -80,16 +139,16 @@ class SwipeViewController: UIViewController {
     }
     
     @objc private func likeButtonTapped() {
+        
         if currentMovieIndex < movies.count {
             let movie = movies[currentMovieIndex]
             WatchlistManager.shared.addToWatchlist(movie)
-            
             showWatchlistFeedback()
+            moviesSwipedRight.append(movie)
         }
-        handleSwipe(direction: .right)
         
+        handleSwipe(direction: .right)
         numMoviesSwipedRight += 1
-        moviesSwipedRight.append(movies[currentMovieIndex])
         if (numMoviesSwipedRight == 5) {
             pickRandomMovie()
         }
