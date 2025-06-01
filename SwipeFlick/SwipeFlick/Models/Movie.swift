@@ -1,6 +1,6 @@
 import Foundation
 
-struct Movie {
+struct Movie: Codable {
     let id: Int
     let title: String
     let description: String
@@ -49,7 +49,7 @@ struct Movie {
             description: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
             imageURL: "https://image.tmdb.org/t/p/w500/eEslKSwcqmiNS6va24Pbxf2UKmJ.jpg",
             releaseYear: 1972,
-            genre: ["Drame", "Crime"],
+            genre: ["Drama", "Crime"],
             rating: "R",
             medium: "Live-Action"
         ),
@@ -124,5 +124,4 @@ struct Movie {
             medium: "Live-Action"
         )
     ]
-} 
-
+}
