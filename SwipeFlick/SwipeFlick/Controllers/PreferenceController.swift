@@ -21,7 +21,9 @@ class PreferenceController: UIViewController {
             name.text = UserDefaults.standard.string(forKey: "username");
         }
         if UserDefaults.standard.array(forKey: "userMovieAgePreferences") != nil {
-            print(UserDefaults.standard.array(forKey: "userMovieAgePreferences") ?? ["", ""])
+            let movieAgeArr = UserDefaults.standard.array(forKey: "userMovieAgePreferences") as? [Int] ?? [1900, 2050]
+            firstYear.text = String(movieAgeArr[0])
+            secondYear.text = String(movieAgeArr[1])
         }
     }
     
