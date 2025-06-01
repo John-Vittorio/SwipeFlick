@@ -21,7 +21,7 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         print(UserDefaults.standard.string(forKey: "username")!)
         
-        guard UserDefaults.standard.string(forKey: "username") == "guest" else {
+        guard UserDefaults.standard.string(forKey: "username") == "Guest" else {
             profileName.text = "\(UserDefaults.standard.string(forKey: "username")!)'s Profile"
             return
         }
@@ -32,7 +32,10 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        guard UserDefaults.standard.string(forKey: "username") == "guest" else {
+        print(UserDefaults.standard.string(forKey: "username")!)
+        if UserDefaults.standard.string(forKey: "username") == "Guest" {
+            profileName.text = "Guest's Profile"
+        } else {
             profileName.text = "\(UserDefaults.standard.string(forKey: "username")!)'s Profile"
             return
         }

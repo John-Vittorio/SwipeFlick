@@ -43,7 +43,11 @@ class PreferenceController: UIViewController {
         }
         
         if UserDefaults.standard.string(forKey: "username") != name.text {
-            UserDefaults.standard.set(name.text, forKey: "username")
+            if name.text?.count == 0 {
+                UserDefaults.standard.set("Guest", forKey: "username")
+            } else {
+                UserDefaults.standard.set(name.text, forKey: "username")
+            }
         }
     }
     
