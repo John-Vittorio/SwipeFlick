@@ -34,6 +34,13 @@ class SwipeViewController: UIViewController {
         self.view.addGestureRecognizer(swipeRight)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Reload movies when view appears to account for watchlist changes
+        loadMovies()
+        displayCurrentMovie()
+    }
+    
     @objc func handleSwipeLeft(_ gesture: UISwipeGestureRecognizer) {
         handleSwipe(direction: .left)
     }
@@ -69,6 +76,12 @@ class SwipeViewController: UIViewController {
         
         movies = movies.filter { movie in
             print("\nChecking movie: \(movie.title)")
+            
+            // First check if movie is already in watchlist - if so, skip it
+            if WatchlistManager.shared.isInWatchlist(movie) {
+                print("Movie is already in watchlist - skipping")
+                return false
+            }
             
             if let genres = genres, !genres.isEmpty {
                 let hasMatchingGenre = movie.genre.contains { genre in
@@ -113,6 +126,11 @@ class SwipeViewController: UIViewController {
         }
         
         print("\nFinal filtered movies count: \(movies.count)")
+        
+        // Reset current index if it's beyond the new filtered list
+        if currentMovieIndex >= movies.count {
+            currentMovieIndex = 0
+        }
     }
     
     private func displayCurrentMovie() {
