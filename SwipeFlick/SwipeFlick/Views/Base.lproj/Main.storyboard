@@ -734,8 +734,8 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live-Action" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPT-dB-Peo">
                                                     <rect key="frame" x="16" y="53.5" width="96" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="3RF-U6-Bpi"/>
-                                                        <constraint firstAttribute="width" constant="96" id="8Lb-NN-cTT"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="3RF-U6-Bpi"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="8Lb-NN-cTT"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -788,7 +788,7 @@
                                                     <rect key="frame" x="16" y="53.5" width="96" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="96" id="Uha-aQ-dzx"/>
-                                                        <constraint firstAttribute="height" constant="21" id="X8M-Kp-gPC"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="X8M-Kp-gPC"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>

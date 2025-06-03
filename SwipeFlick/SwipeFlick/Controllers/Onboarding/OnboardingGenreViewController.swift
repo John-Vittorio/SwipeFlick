@@ -67,10 +67,6 @@ class OnboardingGenreViewController: UIViewController, UICollectionViewDataSourc
         return 12
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 16, left: 12, bottom: 16, right: 12)
-//    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPAth: IndexPath) -> CGSize {
         let width = (collectionView.frame.width - 12 * 2 - 12 * 2) / 3
         return CGSize(width:width, height: 50)
