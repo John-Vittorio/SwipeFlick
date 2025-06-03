@@ -23,7 +23,7 @@ class OnboardingOtherPreferencesViewController: UIViewController, UICollectionVi
         UserDefaults.standard.set(finalSelectedMediums, forKey: "userMediumPreferences")
         UserDefaults.standard.set(finalSelectedRatings, forKey: "userRatingPreferences")
         let fromMovieAge = Int(fromYearTextField.text ?? "") ?? 1900
-        let toMovieAge = Int(toYearTextField.text ?? "") ?? 2050
+        let toMovieAge = Int(toYearTextField.text ?? "") ?? Calendar(identifier: .gregorian).dateComponents([.year], from: Date()).year
         let finalMovieAge = [fromMovieAge, toMovieAge]
         UserDefaults.standard.set(finalMovieAge, forKey: "userMovieAgePreferences")
     }
