@@ -12,37 +12,74 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    let profileStats = ["🍿 Movies Watched: 2", "📋 Watchlist: 4", "❤️ Most Watched Genre: Horror"]
+    var profileStats = ["🍿 Movies Watched: 0", "📋 Watchlist: 0", "❤️ Common Genre: NA"]
+    var genreDict: [String : Int] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-        print(UserDefaults.standard.string(forKey: "username")!)
         
         guard UserDefaults.standard.string(forKey: "username") == "Guest" else {
             profileName.text = "\(UserDefaults.standard.string(forKey: "username")!)'s Profile"
             return
         }
-//        print(Array(UserDefaults.standard.dictionaryRepresentation()))
-        print(UserDefaults.standard.array(forKey: "userGenrePreferences")!)
-        print(UserDefaults.standard.array(forKey: "userRatingPreferences")!)
-        print(UserDefaults.standard.array(forKey: "userMediumPreferences")!)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(UserDefaults.standard.string(forKey: "username")!)
         if UserDefaults.standard.string(forKey: "username") == "Guest" {
             profileName.text = "Guest's Profile"
         } else {
             profileName.text = "\(UserDefaults.standard.string(forKey: "username")!)'s Profile"
             return
         }
+                
+        let movieCount = WatchlistManager.shared.getWatchlist().count
+        if movieCount > 0 {
+            profileStats[1] = "📋 Watchlist: \(movieCount)"
+            profileStats[2] = "❤️ Common Genre (from Watchlist): \(findMostCommonGenre())"
+        } else {
+            profileStats[1] = "📋 Watchlist: 0"
+            profileStats[2] = "❤️ Common Genre (from Watchlist): N/A"
+        }
+        tableView.reloadData();
     }
     
     @IBAction func unwind(_ unwindSegue: UIStoryboardSegue) {
         
+    }
+    
+    func findMostCommonGenre() -> String {
+        for movie in WatchlistManager.shared.getWatchlist() {
+            for genre in movie.genre {
+                if genreDict[genre] == nil {
+                    genreDict[genre] = 1
+                } else {
+                    genreDict[genre] = (genreDict[genre] ?? 0) + 1
+                }
+            }
+        }
+        
+        var mostCommonGenre: String?
+        var highestCount: Int?
+        for (genre, count) in genreDict {
+            if mostCommonGenre == nil || count > (highestCount ?? 0) {
+                mostCommonGenre = genre
+                highestCount = count
+            }
+        }
+        
+        return mostCommonGenre ?? "N/A";
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,6 +90,7 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath)
         cell.textLabel?.text = profileStats[indexPath.row];
         cell.textLabel?.font = UIFont.systemFont(ofSize: 24, weight: .regular)
+        cell.textLabel?.numberOfLines = 0
         return cell
     }
     
