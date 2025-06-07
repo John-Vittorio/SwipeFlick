@@ -26,7 +26,7 @@ struct Movie: Codable {
         Movie(
             id: 0,
             title: "Interstellar",
-            description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+            description: "Farmer drives a tractor, then a spaceship, to find a new home for humanity, but ends up sending secret messages through a bookshelf to his daughter.",
             imageURL: "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
             releaseYear: 2014,
             genre: ["Sci-Fi", "Adventure", "Drama"],
@@ -46,7 +46,7 @@ struct Movie: Codable {
         Movie(
             id: 2,
             title: "The Godfather",
-            description: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+            description: "Guy asks for a favor, gets a horse head in his bed, and suddenly everyone's in the family business.",
             imageURL: "https://image.tmdb.org/t/p/w500/eEslKSwcqmiNS6va24Pbxf2UKmJ.jpg",
             releaseYear: 1972,
             genre: ["Drama", "Crime"],
@@ -56,7 +56,7 @@ struct Movie: Codable {
         Movie(
             id: 3,
             title: "Parasite",
-            description: "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+            description: "Family gets jobs they're not qualified for. Things go underground.",
             imageURL: "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
             releaseYear: 2019,
             genre: ["Thriller", "Comedy", "Drama"],
@@ -66,7 +66,7 @@ struct Movie: Codable {
         Movie(
             id: 4,
             title: "Spider-Man: Into the Spider-Verse",
-            description: "Teen Miles Morales becomes the Spider-Man of his universe and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.",
+            description: "Pig, anime girl, and black-and-white detective teach teen to punch a man with a particle collider.",
             imageURL: "https://image.tmdb.org/t/p/w500/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg",
             releaseYear: 2018,
             genre: ["Action", "Adventure", "Sci-Fi"],
@@ -76,7 +76,7 @@ struct Movie: Codable {
         Movie(
             id: 5,
             title: "Inception",
-            description: "A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+            description: "Dude sleeps with all his employees.",
             imageURL: "https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg",
             releaseYear: 2010,
             genre: ["Sci-Fi", "Action", "Adventure"],
@@ -86,7 +86,7 @@ struct Movie: Codable {
         Movie(
             id: 6,
             title: "The Dark Knight",
-            description: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+            description: "Man cosplays as bat to stop crime, accidentally inspires even weirder cosplay.",
             imageURL: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
             releaseYear: 2008,
             genre: ["Action", "Drama", "Crime", "Thriller"],
@@ -96,7 +96,7 @@ struct Movie: Codable {
         Movie(
             id: 7,
             title: "Pulp Fiction",
-            description: "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+            description: "Everyone talks too much, gets shot, or dances. Not in that order.",
             imageURL: "https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
             releaseYear: 1994,
             genre: ["Thriller", "Crime"],
@@ -106,7 +106,7 @@ struct Movie: Codable {
         Movie(
             id: 8,
             title: "The Shawshank Redemption",
-            description: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+            description: "Man goes to prison for a crime he didn't commit, gets really good at digging and friendship.",
             imageURL: "https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg",
             releaseYear: 1994,
             genre: ["Drama", "Crime"],
@@ -116,12 +116,44 @@ struct Movie: Codable {
         Movie(
             id: 9,
             title: "The Matrix",
-            description: "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+            description: "Bald man in sunglasses convinces depressed office worker to fight robots with karate.",
             imageURL: "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
             releaseYear: 1999,
             genre: ["Sci-Fi", "Action"],
             rating: "R",
             medium: "Live-Action"
-        )
+        ),
+        Movie(
+            id: 10,
+        title: "Dune: Part One",
+        description: "The whole family has to move because of dad's job. Everything goes horribly wrong, dad dies and teen son ends up lost and addicted to drugs. But he literally meets the girl of his dreams.",
+        imageURL: "https://image.tmdb.org/t/p/w1280/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
+        releaseYear: 2021,
+        genre: ["Sci-Fi", "Adventure"],
+        rating: "PG-13",
+        medium: "Live-Action"
+        ),
+        Movie(id: 11, title: "WALL-E", description: "Little guy works overtime while also stealing body parts from his dead coworkers before ditching his job to go on a cruise with his unconscious girlfriend.", imageURL: "https://image.tmdb.org/t/p/w1280/iujbETnK8hvNcgkNwzS7Nv4Thqc.jpg", releaseYear: 2008, genre: ["Sci-fi"], rating: "G", medium: "Animation"),
+        Movie(
+            id: 12,
+            title: "The Bourne Identity",
+            description: "The big bad guy kills the main bad guy because he failed to kill their bad guy who was almost killed trying to kill a bad guy.",
+            imageURL: "https://image.tmdb.org/t/p/w1280/aP8swke3gmowbkfZ6lmNidu0y9p.jpg",
+            releaseYear: 2002,
+            genre: ["Action", "Drama", "Thriller"],
+            rating: "PG-13",
+            medium: "Live-Action"),
+        Movie(
+            id: 13,
+            title: "Requiem for a Dream",
+            description: "Watch what happens when everyone says \"just one more time\" for 100 minutes straight.",
+            imageURL: "https://image.tmdb.org/t/p/w1280/nOd6vjEmzCT0k4VYqsA2hwyi87C.jpg",
+            releaseYear: 2000,
+            genre: ["Crime", "Drame"],
+            rating: "NC-17",
+            medium: "Live-Action"
+        ),
+        Movie(id: 14, title: "Kung Fu Panda", description: "An overweight chef slaughters a snow leopard because his turtule died", imageURL: "https://image.tmdb.org/t/p/w1280/wWt4JYXTg5Wr3xBW2phBrMKgp3x.jpg", releaseYear: 2008, genre: ["Action", "Adventure", "Comedy"], rating: "PG", medium: "Animation")
+        
     ]
 }

@@ -686,13 +686,13 @@
                                 <rect key="frame" x="16" y="73" width="288" height="366.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Age (Release Date)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpm-D6-ahH">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="nWy-pZ-L5W">
-                                        <rect key="frame" x="0.0" y="24" width="288" height="34"/>
+                                        <rect key="frame" x="0.0" y="23.5" width="288" height="34"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vHE-D1-nuA">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="34"/>
@@ -721,7 +721,7 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nrb-bk-1vV">
-                                        <rect key="frame" x="0.0" y="61" width="288" height="21"/>
+                                        <rect key="frame" x="0.0" y="60.5" width="288" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="188" id="kgz-Xj-R96"/>
                                             <constraint firstAttribute="height" constant="21" id="obj-RC-agI"/>
@@ -731,7 +731,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lIp-iX-Hh6">
-                                        <rect key="frame" x="0.0" y="85" width="288" height="127"/>
+                                        <rect key="frame" x="0.0" y="84.5" width="288" height="128"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="UQK-Xf-8Lu"/>
@@ -775,7 +775,7 @@
                                         </cells>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLL-L3-pFd">
-                                        <rect key="frame" x="0.0" y="215" width="288" height="21"/>
+                                        <rect key="frame" x="0.0" y="215.5" width="288" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="188" id="YIj-Dm-ZiG"/>
                                             <constraint firstAttribute="height" constant="21" id="taf-ub-c56"/>
@@ -785,7 +785,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vre-mR-PJh">
-                                        <rect key="frame" x="0.0" y="239" width="288" height="127.5"/>
+                                        <rect key="frame" x="0.0" y="239.5" width="288" height="127"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="5GP-cp-lKh"/>
