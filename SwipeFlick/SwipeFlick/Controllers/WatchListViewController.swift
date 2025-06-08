@@ -75,14 +75,14 @@ class WatchListViewController: UIViewController {
         let emptyLabel = UILabel()
         emptyLabel.text = "Your watchlist is empty"
         emptyLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        emptyLabel.textColor = .secondaryLabel
+        emptyLabel.textColor = UIColor(red: 1.0, green: 0.6, blue: 0.2, alpha: 1.0)
         emptyLabel.textAlignment = .center
         emptyLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let subtitleLabel = UILabel()
         subtitleLabel.text = "Movies you like will appear here"
         subtitleLabel.font = UIFont.systemFont(ofSize: 14)
-        subtitleLabel.textColor = .tertiaryLabel
+        subtitleLabel.textColor = UIColor(red: 1.0, green: 0.7, blue: 0.4, alpha: 0.8)
         subtitleLabel.textAlignment = .center
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         
