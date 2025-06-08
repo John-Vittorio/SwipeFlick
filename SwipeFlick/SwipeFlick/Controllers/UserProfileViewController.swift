@@ -25,12 +25,9 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
         }
         let movieCount = WatchlistManager.shared.getWatchlist().count
         if movieCount > 0 {
-            print("meow")
             profileStats[1] = "📋 Watchlist: \(movieCount)"
             profileStats[2] = "❤️ Common Genre (from Watchlist): \(findMostCommonGenre())"
         } else {
-            print("hiss")
-            print(WatchlistManager.shared.getWatchlist())
             profileStats[1] = "📋 Watchlist: 0"
             profileStats[2] = "❤️ Common Genre (from Watchlist): N/A"
         }

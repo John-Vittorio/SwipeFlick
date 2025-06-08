@@ -22,7 +22,6 @@ class WatchListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("test from appear?")
         loadWatchlist() // Refresh watchlist when view appears
     }
     
