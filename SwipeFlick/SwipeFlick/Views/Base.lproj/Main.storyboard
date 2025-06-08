@@ -731,7 +731,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lIp-iX-Hh6">
-                                        <rect key="frame" x="0.0" y="84.5" width="288" height="128"/>
+                                        <rect key="frame" x="0.0" y="84.5" width="288" height="128.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="UQK-Xf-8Lu"/>
@@ -775,7 +775,7 @@
                                         </cells>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLL-L3-pFd">
-                                        <rect key="frame" x="0.0" y="215.5" width="288" height="21"/>
+                                        <rect key="frame" x="0.0" y="216" width="288" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="188" id="YIj-Dm-ZiG"/>
                                             <constraint firstAttribute="height" constant="21" id="taf-ub-c56"/>
@@ -785,7 +785,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vre-mR-PJh">
-                                        <rect key="frame" x="0.0" y="239.5" width="288" height="127"/>
+                                        <rect key="frame" x="0.0" y="240" width="288" height="126.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="5GP-cp-lKh"/>

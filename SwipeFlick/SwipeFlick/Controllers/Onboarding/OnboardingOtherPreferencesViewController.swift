@@ -11,7 +11,7 @@ class MediumCell: UICollectionViewCell {
     @IBOutlet weak var mediumLabel: UILabel!
 }
 
-class OnboardingOtherPreferencesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class OnboardingOtherPreferencesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
 
     @IBOutlet weak var mediumCollectionView: UICollectionView!
     @IBOutlet weak var ageRatingCollectionView: UICollectionView!
@@ -40,6 +40,14 @@ class OnboardingOtherPreferencesViewController: UIViewController, UICollectionVi
         mediumCollectionView.dataSource = self
         ageRatingCollectionView.delegate = self
         ageRatingCollectionView.dataSource = self
+        
+        self.fromYearTextField.delegate = self
+        self.toYearTextField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
