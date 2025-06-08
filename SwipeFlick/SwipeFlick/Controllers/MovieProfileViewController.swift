@@ -113,7 +113,7 @@ class MovieProfileViewController: UIViewController {
     
     private func showWatchedConfirmation() {
         let confirmationLabel = UILabel()
-        confirmationLabel.text = "Added to watched movies! 🎬"
+        confirmationLabel.text = "Movie Watched! 🎬"
         confirmationLabel.textColor = .systemGreen
         confirmationLabel.font = UIFont.boldSystemFont(ofSize: 16)
         confirmationLabel.textAlignment = .center
