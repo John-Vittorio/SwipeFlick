@@ -19,6 +19,8 @@ class SwipeViewController: UIViewController {
     private var movies: [Movie] = []
     private var numMoviesSwipedRight = 0
     private var moviesSwipedRight: [Movie] = []
+    private var swipedRight = 0;
+    private var swipedLeft = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,21 @@ class SwipeViewController: UIViewController {
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeLeft)
         self.view.addGestureRecognizer(swipeRight)
+        
+        if UserDefaults.standard.integer(forKey: "swipedRight") > 0 {
+            swipedRight = UserDefaults.standard.integer(forKey: "swipedRight")
+        } else {
+            UserDefaults.standard.set(swipedRight, forKey: "swipedRight")
+        }
+        
+        if UserDefaults.standard.integer(forKey: "swipedLeft") > 0 {
+            swipedLeft = UserDefaults.standard.integer(forKey: "swipedLeft")
+        } else {
+            UserDefaults.standard.set(swipedRight, forKey: "swipedLeft")
+        }
+        print(swipedLeft)
+        print(swipedRight)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -167,6 +184,9 @@ class SwipeViewController: UIViewController {
         
         handleSwipe(direction: .right)
         numMoviesSwipedRight += 1
+        swipedRight += 1
+        UserDefaults.standard.set(swipedRight, forKey: "swipedRight")
+        print(UserDefaults.standard.integer(forKey: "swipedRight"))
         if (numMoviesSwipedRight == 5) {
             pickRandomMovie()
         }
@@ -183,6 +203,9 @@ class SwipeViewController: UIViewController {
     
     @objc private func dislikeButtonTapped() {
         handleSwipe(direction: .left)
+        swipedLeft += 1
+        UserDefaults.standard.set(swipedLeft, forKey: "swipedLeft")
+        print(UserDefaults.standard.integer(forKey: "swipedLeft"))
     }
     
     private func showWatchlistFeedback() {

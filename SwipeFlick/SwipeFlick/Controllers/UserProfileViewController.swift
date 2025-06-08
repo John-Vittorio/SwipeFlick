@@ -12,7 +12,7 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var profileStats = ["🍿 Movies Watched: 0", "📋 Watchlist: 0", "❤️ Common Genre: NA"]
+    var profileStats = ["🍿 Movies Watched: 0", "📋 Watchlist: 0", "❤️ Common Genre: NA", "😍 Times you Swiped Right: 0", "😑 Times you Swiped Left: 0"]
     var genreDict: [String : Int] = [:]
     
     override func viewDidLoad() {
@@ -30,6 +30,13 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
         } else {
             profileStats[1] = "📋 Watchlist: 0"
             profileStats[2] = "❤️ Common Genre (from Watchlist): N/A"
+        }
+        
+        if UserDefaults.standard.integer(forKey: "swipedRight") > 0 {
+            profileStats[3] = "😍 Times you Swiped Right: \(UserDefaults.standard.integer(forKey: "swipedRight"))"
+        }
+        if UserDefaults.standard.integer(forKey: "swipedLeft") > 0 {
+            profileStats[4] = "😑 Times you Swiped Left: \(UserDefaults.standard.integer(forKey: "swipedLeft"))"
         }
         
     }
@@ -51,14 +58,18 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
                 
         let movieCount = WatchlistManager.shared.getWatchlist().count
         if movieCount > 0 {
-            print("meow")
             profileStats[1] = "📋 Watchlist: \(movieCount)"
             profileStats[2] = "❤️ Common Genre (from Watchlist): \(findMostCommonGenre())"
         } else {
-            print("hiss")
             print(WatchlistManager.shared.getWatchlist())
             profileStats[1] = "📋 Watchlist: 0"
             profileStats[2] = "❤️ Common Genre (from Watchlist): N/A"
+        }
+        if UserDefaults.standard.integer(forKey: "swipedRight") > 0 {
+            profileStats[3] = "😍 Times you Swiped Right: \(UserDefaults.standard.integer(forKey: "swipedRight"))"
+        }
+        if UserDefaults.standard.integer(forKey: "swipedLeft") > 0 {
+            profileStats[4] = "😑 Times you Swiped Left: \(UserDefaults.standard.integer(forKey: "swipedLeft"))"
         }
         tableView.reloadData();
     }
@@ -91,7 +102,7 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return profileStats.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
