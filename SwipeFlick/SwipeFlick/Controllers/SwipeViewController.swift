@@ -60,10 +60,15 @@ class SwipeViewController: UIViewController {
     
     @objc func handleSwipeLeft(_ gesture: UISwipeGestureRecognizer) {
         handleSwipe(direction: .left)
+        swipedLeft += 1
+        UserDefaults.standard.set(swipedLeft, forKey: "swipedLeft")
+        print(UserDefaults.standard.integer(forKey: "swipedLeft"))
     }
     
     @objc func handleSwipeRight(_ gesture: UISwipeGestureRecognizer) {
         likeButtonTapped();
+        UserDefaults.standard.set(swipedRight, forKey: "swipedRight")
+        print(UserDefaults.standard.integer(forKey: "swipedRight"))
     }
     
     private func setupUI() {
