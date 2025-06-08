@@ -23,6 +23,13 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
         if UserDefaults.standard.string(forKey: "username") != "Guest" {
             profileName.text = "\(UserDefaults.standard.string(forKey: "username")!)'s Profile"
         }
+        
+        let watchedMovies = UserDefaults.standard.array(forKey: "watchedMovies") as? [String] ?? []
+        if watchedMovies.count > 0 {
+            profileStats[0] = "🍿 Movies Watched: \(watchedMovies.count)"
+        }
+        
+        
         let movieCount = WatchlistManager.shared.getWatchlist().count
         if movieCount > 0 {
             profileStats[1] = "📋 Watchlist: \(movieCount)"
@@ -55,6 +62,12 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
         } else {
             profileName.text = "\(UserDefaults.standard.string(forKey: "username")!)'s Profile"
         }
+        
+        let watchedMovies = UserDefaults.standard.array(forKey: "watchedMovies") as? [String] ?? []
+        if watchedMovies.count > 0 {
+            profileStats[0] = "🍿 Movies Watched: \(watchedMovies.count)"
+        }
+        
                 
         let movieCount = WatchlistManager.shared.getWatchlist().count
         if movieCount > 0 {
