@@ -55,6 +55,7 @@ class WatchListViewController: UIViewController {
     
     private func loadWatchlist() {
         watchlistMovies = WatchlistManager.shared.getWatchlist()
+        print("Loaded \(watchlistMovies.count) movies from watchlist")
         collectionView.reloadData()
         
         if watchlistMovies.isEmpty {
@@ -164,9 +165,17 @@ extension WatchListViewController: UICollectionViewDataSource {
 extension WatchListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedMovie = watchlistMovies[indexPath.item]
-        print("Tapped on: \(selectedMovie.title)")
+        print("Movie tapped at index: \(indexPath.item)")
         
+        guard indexPath.item < watchlistMovies.count else {
+            print("Index out of bounds")
+            return
+        }
+        
+        let selectedMovie = watchlistMovies[indexPath.item]
+        print("Selected movie: \(selectedMovie.title)")
+        
+        // Add haptic feedback for better user experience
         let impactFeedback = UIImpactFeedbackGenerator(style: .light)
         impactFeedback.impactOccurred()
         
@@ -181,7 +190,13 @@ extension WatchListViewController: UICollectionViewDelegate {
         if let movieProfileVC = storyboard.instantiateViewController(withIdentifier: "MovieProfileViewController") as? MovieProfileViewController {
             print("Successfully created MovieProfileViewController")
             movieProfileVC.selectedMovie = movie
-            navigationController?.pushViewController(movieProfileVC, animated: true)
+            
+            // Ensure navigation happens on the main thread
+            DispatchQueue.main.async {
+                self.navigationController?.pushViewController(movieProfileVC, animated: true)
+            }
+        } else {
+            print("Failed to create MovieProfileViewController")
         }
     }
     
@@ -220,6 +235,10 @@ class MovieCardCell: UICollectionViewCell {
     }
     
     private func setupCell() {
+        // Remove any existing gesture recognizers
+        contentView.gestureRecognizers?.removeAll()
+        
+        // Configure card background
         cardBackground.translatesAutoresizingMaskIntoConstraints = false
         cardBackground.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         cardBackground.layer.cornerRadius = 16
@@ -247,17 +266,21 @@ class MovieCardCell: UICollectionViewCell {
             ])
         }
         
+        // Configure poster image
         posterImageView.translatesAutoresizingMaskIntoConstraints = false
         posterImageView.contentMode = .scaleAspectFill
         posterImageView.clipsToBounds = true
         posterImageView.layer.cornerRadius = 12
         posterImageView.backgroundColor = UIColor.systemGray5.withAlphaComponent(0.5)
+        posterImageView.isUserInteractionEnabled = false // Important: disable user interaction
         
+        // Configure title background
         titleBackground.translatesAutoresizingMaskIntoConstraints = false
         titleBackground.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         titleBackground.layer.cornerRadius = 10
         titleBackground.layer.borderWidth = 0.5
         titleBackground.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
+        titleBackground.isUserInteractionEnabled = false
         
         if #available(iOS 13.0, *) {
             let titleBlurEffect = UIBlurEffect(style: .systemMaterialDark)
@@ -265,6 +288,7 @@ class MovieCardCell: UICollectionViewCell {
             titleBlurView.translatesAutoresizingMaskIntoConstraints = false
             titleBlurView.layer.cornerRadius = 10
             titleBlurView.clipsToBounds = true
+            titleBlurView.isUserInteractionEnabled = false
             titleBackground.addSubview(titleBlurView)
             
             NSLayoutConstraint.activate([
@@ -275,14 +299,16 @@ class MovieCardCell: UICollectionViewCell {
             ])
         }
         
+        // Configure title label
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.systemFont(ofSize: 13, weight: .medium)
         titleLabel.textColor = UIColor.white.withAlphaComponent(0.9)
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 2
         titleLabel.lineBreakMode = .byWordWrapping
+        titleLabel.isUserInteractionEnabled = false
         
-        // Remove button setup
+        // Configure remove button
         removeButton.translatesAutoresizingMaskIntoConstraints = false
         removeButton.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
         removeButton.tintColor = .systemRed
@@ -290,11 +316,14 @@ class MovieCardCell: UICollectionViewCell {
         removeButton.layer.cornerRadius = 12
         removeButton.addTarget(self, action: #selector(removeButtonTapped), for: .touchUpInside)
         
+        // Add film icon
         let filmIcon = UIImageView(image: UIImage(systemName: "film.fill"))
         filmIcon.translatesAutoresizingMaskIntoConstraints = false
         filmIcon.tintColor = UIColor.white.withAlphaComponent(0.15)
         filmIcon.contentMode = .scaleAspectFit
+        filmIcon.isUserInteractionEnabled = false
         
+        // Add subviews
         contentView.addSubview(cardBackground)
         cardBackground.addSubview(posterImageView)
         posterImageView.addSubview(filmIcon)
@@ -302,6 +331,7 @@ class MovieCardCell: UICollectionViewCell {
         titleBackground.addSubview(titleLabel)
         cardBackground.addSubview(removeButton)
         
+        // Setup constraints
         NSLayoutConstraint.activate([
             cardBackground.topAnchor.constraint(equalTo: contentView.topAnchor),
             cardBackground.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -333,40 +363,32 @@ class MovieCardCell: UICollectionViewCell {
             removeButton.widthAnchor.constraint(equalToConstant: 24),
             removeButton.heightAnchor.constraint(equalToConstant: 24)
         ])
-        
-        setupHoverAnimation()
     }
     
     @objc private func removeButtonTapped() {
         onRemove?()
     }
     
-    private func setupHoverAnimation() {
-        let tapGesture = UITapGestureRecognizer()
-        contentView.addGestureRecognizer(tapGesture)
-    }
-    
+    // Simplified touch handling - remove the complex animations that interfere with taps
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        UIView.animate(withDuration: 0.1, delay: 0, options: .allowUserInteraction) {
-            self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-            self.cardBackground.layer.shadowOpacity = 0.5
+        // Only apply a subtle scale effect
+        UIView.animate(withDuration: 0.1, delay: 0, options: [.allowUserInteraction, .beginFromCurrentState]) {
+            self.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        UIView.animate(withDuration: 0.2, delay: 0, options: .allowUserInteraction) {
+        UIView.animate(withDuration: 0.1, delay: 0, options: [.allowUserInteraction, .beginFromCurrentState]) {
             self.transform = .identity
-            self.cardBackground.layer.shadowOpacity = 0.3
         }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
-        UIView.animate(withDuration: 0.2, delay: 0, options: .allowUserInteraction) {
+        UIView.animate(withDuration: 0.1, delay: 0, options: [.allowUserInteraction, .beginFromCurrentState]) {
             self.transform = .identity
-            self.cardBackground.layer.shadowOpacity = 0.3
         }
     }
     
