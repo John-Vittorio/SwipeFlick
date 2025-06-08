@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PreferenceController: UIViewController {
+class PreferenceController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var genreBtn: UIButton!
     @IBOutlet weak var firstYear: UITextField!
@@ -25,6 +25,10 @@ class PreferenceController: UIViewController {
             firstYear.text = String(movieAgeArr[0])
             secondYear.text = String(movieAgeArr[1])
         }
+        self.name.delegate = self
+        self.firstYear.delegate = self
+        self.secondYear.delegate = self
+
     }
     
     @IBAction func unwindToSettings(_ unwindSegue: UIStoryboardSegue) {
@@ -49,6 +53,11 @@ class PreferenceController: UIViewController {
                 UserDefaults.standard.set(name.text, forKey: "username")
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     /*
