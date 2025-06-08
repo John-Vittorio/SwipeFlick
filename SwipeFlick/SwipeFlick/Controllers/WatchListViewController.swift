@@ -15,12 +15,14 @@ class WatchListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("test??")
         setupCollectionView()
         loadWatchlist()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("test from appear?")
         loadWatchlist() // Refresh watchlist when view appears
     }
     

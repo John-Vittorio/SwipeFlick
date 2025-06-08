@@ -20,10 +20,19 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-        
-        guard UserDefaults.standard.string(forKey: "username") == "Guest" else {
+        if UserDefaults.standard.string(forKey: "username") != "Guest" {
             profileName.text = "\(UserDefaults.standard.string(forKey: "username")!)'s Profile"
-            return
+        }
+        let movieCount = WatchlistManager.shared.getWatchlist().count
+        if movieCount > 0 {
+            print("meow")
+            profileStats[1] = "📋 Watchlist: \(movieCount)"
+            profileStats[2] = "❤️ Common Genre (from Watchlist): \(findMostCommonGenre())"
+        } else {
+            print("hiss")
+            print(WatchlistManager.shared.getWatchlist())
+            profileStats[1] = "📋 Watchlist: 0"
+            profileStats[2] = "❤️ Common Genre (from Watchlist): N/A"
         }
         
     }
@@ -41,14 +50,16 @@ class UserProfileViewController: UIViewController, UITableViewDataSource, UITabl
             profileName.text = "Guest's Profile"
         } else {
             profileName.text = "\(UserDefaults.standard.string(forKey: "username")!)'s Profile"
-            return
         }
                 
         let movieCount = WatchlistManager.shared.getWatchlist().count
         if movieCount > 0 {
+            print("meow")
             profileStats[1] = "📋 Watchlist: \(movieCount)"
             profileStats[2] = "❤️ Common Genre (from Watchlist): \(findMostCommonGenre())"
         } else {
+            print("hiss")
+            print(WatchlistManager.shared.getWatchlist())
             profileStats[1] = "📋 Watchlist: 0"
             profileStats[2] = "❤️ Common Genre (from Watchlist): N/A"
         }
